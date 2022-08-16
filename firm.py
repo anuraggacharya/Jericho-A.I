@@ -1,13 +1,12 @@
-from pyfirmata import Arduino, util
-from time import sleep
-board = Arduino('COM3') # Change to your port
-print(board)
-while True:
-
-    board.digital[13].write(1)
-
-    sleep(1)
-
-    board.digital[13].write(0)
-
-    sleep(1)
+import serial
+import time
+with serial.Serial('COM3',9600) as arduino:
+    while True:
+        arduino.write(b'H')
+        time.sleep(0.1)
+        arduino.write(b'L')
+        time.sleep(0.1)
+        arduino.write(b'H')
+        time.sleep(0.2)
+        arduino.write(b'L')
+        time.sleep(1)

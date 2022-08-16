@@ -3,7 +3,6 @@ import pyttsx3
 import serial
 from serial import SerialException
 import time
-#arduino = serial.Serial('COM3',9600)
 
 def controlLed(command):
     try:    
